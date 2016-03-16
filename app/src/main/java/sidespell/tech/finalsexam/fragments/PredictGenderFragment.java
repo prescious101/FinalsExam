@@ -71,6 +71,7 @@ public class PredictGenderFragment extends Fragment implements View.OnClickListe
 
         private String mName;
 
+
         @Override
         protected void onPreExecute() {
             mTvGender.setText(R.string.text_analyzing);
@@ -84,6 +85,8 @@ public class PredictGenderFragment extends Fragment implements View.OnClickListe
             }
 
             // TODO: Implement the logic to get the gender given a specified name
+            GenderApi.getGender(mName);
+
             return null;
         }
 

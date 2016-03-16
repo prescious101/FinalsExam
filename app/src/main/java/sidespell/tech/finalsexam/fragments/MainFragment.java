@@ -14,7 +14,7 @@ import java.util.Arrays;
 
 import sidespell.tech.finalsexam.R;
 
-public class MainFragment extends ListFragment {
+public class MainFragment extends ListFragment  {
 
     public interface OnTopicItemClickListener {
         void onItemClick(int position);
