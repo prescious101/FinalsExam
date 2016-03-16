@@ -14,9 +14,13 @@ public class PredictGenderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_predict_gender);
 
         // TODO: Attach and show the PredictGender Fragment on this activity
-        PredictGenderFragment predictGenderActivity = (PredictGenderFragment)
+        PredictGenderFragment predictGenderFragment = (PredictGenderFragment)
                 getSupportFragmentManager().findFragmentById(R.id.fragment_container);
 
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container,predictGenderFragment)
+                .commit();
 
     }
 }

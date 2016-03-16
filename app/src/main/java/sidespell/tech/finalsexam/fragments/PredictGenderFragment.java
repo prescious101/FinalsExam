@@ -21,6 +21,8 @@ import sidespell.tech.finalsexam.api.GenderApi;
 
 public class PredictGenderFragment extends Fragment implements View.OnClickListener {
 
+    public static final String KEY_POSITION= "position";
+
     private EditText             mEtName;
     private TextView             mTvGender;
     private ListView             mListView;
@@ -44,6 +46,9 @@ public class PredictGenderFragment extends Fragment implements View.OnClickListe
 
         // Set button listener
         mFabGetGender.setOnClickListener(this);
+
+
+
         return view;
     }
 
@@ -53,15 +58,22 @@ public class PredictGenderFragment extends Fragment implements View.OnClickListe
         mAdapter = new ArrayAdapter<>(getContext(),
                 android.R.layout.simple_list_item_1, new ArrayList<String>());
         mListView.setAdapter(mAdapter);
+
+        GetGenderTask getGenderTask = new GetGenderTask();
+        getGenderTask.execute();
+
+
     }
 
     @Override
     public void onClick(View v) {
         String name = mEtName.getText().toString();
 
+
         // TODO: Appropriately execute getting the gender info task in a background thread
         if (TextUtils.isEmpty(name)) {
             mEtName.setError(getContext().getString(R.string.txt_enter_name));
+
         } else {
             mEtName.setError(null);
         }
